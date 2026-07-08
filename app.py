@@ -32,7 +32,7 @@ if st.session_state.step == 1:
 
 # --- ШАГ 2: Главный вопрос ---
 elif st.session_state.step == 2:
-    st.markdown("<h2 style='text-align: center; margin-top: 30px;'>Ты свобосна завтра? 🤔</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; margin-top: 30px;'>Ты свободна завтра? 🤔</h2>", unsafe_allow_html=True)
     
     # Загрузка локального мема
     img = get_file_path("masha-text.jpg")
@@ -54,9 +54,10 @@ elif st.session_state.step == 2:
             st.session_state.step = "closed"
             st.rerun()
 
-# --- ШАГ 3: Если Маша ответила "Да" ---
+# --- ШАГ 3: Если Маша ответила "Да" (ФИНАЛЬНЫЙ ЭКРАН) ---
 elif st.session_state.step == 3:
-    st.markdown("<h2 style='text-align: center; margin-top: 30px;'>Давай встретимся, хочу кое-чо сказать... 👀</h2>", unsafe_allow_html=True)
+    # НОВЫЙ ТЕКСТ ПО ТВОЕЙ ПРОСЬБЕ:
+    st.markdown("<h2 style='text-align: center; margin-top: 30px;'>урааа ты нажала , пойдем гулять завтра ,кинь в тг 67</h2>", unsafe_allow_html=True)
     
     # Гифка танцующих котят
     st.image("https://giphy.com", use_container_width=True)
@@ -85,5 +86,3 @@ elif st.session_state.step == "closed":
     st.markdown("<h3 style='text-align: center; margin-top: 50px;'>Ну ладно... 🥺</h3>", unsafe_allow_html=True)
     st.image("https://giphy.com", use_container_width=True)
     st.components.v1.html("<script>setTimeout(function(){ window.close(); }, 4000);</script>", height=0)
-
-
