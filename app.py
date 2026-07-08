@@ -18,7 +18,7 @@ def get_file_path(filename):
 if st.session_state.step == 1:
     st.markdown("<h1 style='text-align: center; margin-top: 30px;'>Привет, Маша! 👋</h1>", unsafe_allow_html=True)
     
-    # Твоя картинка "Хаю-Хай" с новым именем
+    # Твоя картинка "Хаю-Хай"
     img = get_file_path("image-Photoroom (10).png")
     if img:
         st.image(img, use_container_width=True)
@@ -32,7 +32,7 @@ if st.session_state.step == 1:
 
 # --- ШАГ 2: Главный вопрос ---
 elif st.session_state.step == 2:
-    st.markdown("<h2 style='text-align: center; margin-top: 30px;'>Ты свободна завтра? 🤔</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; margin-top: 30px;'>Ты свобосна завтра? 🤔</h2>", unsafe_allow_html=True)
     
     # Загрузка локального мема
     img = get_file_path("masha-text.jpg")
@@ -58,7 +58,7 @@ elif st.session_state.step == 2:
 elif st.session_state.step == 3:
     st.markdown("<h2 style='text-align: center; margin-top: 30px;'>Давай встретимся, хочу кое-чо сказать... 👀</h2>", unsafe_allow_html=True)
     
-    # Гифка танцующих котят (работает всегда)
+    # Гифка танцующих котят
     st.image("https://giphy.com", use_container_width=True)
     
     # Твое фото с Меллстроем
@@ -68,14 +68,15 @@ elif st.session_state.step == 3:
     else:
         st.info("🖼 Фото с Меллстроем загружается...")
     
-    st.write("🎵 **Слушай трек:**")
+    st.write("")
+    st.write("🎵 **Включай трек:**")
     
-    # Включается встроенный плеер, если загружен track.mp3, иначе — YouTube видеоплеер
+    # Воспроизведение твоего локального файла track.mp3
     audio_file = get_file_path("track.mp3")
     if audio_file:
-        st.audio(audio_file, format="audio/mp3", autoplay=True, loop=True)
+        st.audio(audio_file, format="audio/mp3", loop=True)
     else:
-        st.video("https://youtube.com")
+        st.error("❌ Файл 'track.mp3' не найден в папке на GitHub. Проверь имя файла!")
         
     st.balloons()
 
@@ -84,4 +85,5 @@ elif st.session_state.step == "closed":
     st.markdown("<h3 style='text-align: center; margin-top: 50px;'>Ну ладно... 🥺</h3>", unsafe_allow_html=True)
     st.image("https://giphy.com", use_container_width=True)
     st.components.v1.html("<script>setTimeout(function(){ window.close(); }, 4000);</script>", height=0)
+
 
